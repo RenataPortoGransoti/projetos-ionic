@@ -23,7 +23,7 @@ export class HomePage {
     
       if (!(this.preco == 0)) {
         this.variavel_lista_preco.push(this.preco);
-        this.preco;
+        this.preco = 0;
       }
 
       /*
@@ -38,7 +38,7 @@ export class HomePage {
 
   remove(indice) {
     this.variavel_lista.splice(indice, 1)
-  }
+    this.variavel_lista_preco.splice(indice, 1)  }
 
   //*ngFor = "let elemento_da_lista of minhaLista" no item
   //[(ngModel)]="texto" no input
