@@ -9,16 +9,38 @@ export class HomePage {
 
   constructor() {}
 
-  variavel_lista = [""];
-  texto: string =  "";
+  variavel_lista = [];
+  variavel_lista_preco = [];
+  texto: string = "";
+  preco: number;
 
-  adiciona(){
-    if (!(this.texto == "")){
-      this.variavel_lista.push(this.texto)
+  adiciona() {
+    if (!(this.texto == "")) {
+      this.variavel_lista.push(this.texto);
       this.texto = "";
     }
+
+    
+      if (!(this.preco == 0)) {
+        this.variavel_lista_preco.push(this.preco);
+        this.preco;
+      }
+
+      /*
+    if (this.texto == "") {
+
+    } else{
+      this.variavel_lista.push(this.texto);
+      this.texto = "";
+    }*/
+   
   }
-  
-  //*ngFor = "let item of variavel_lista" no item
+
+  remove(indice) {
+    this.variavel_lista.splice(indice, 1)
+  }
+
+  //*ngFor = "let elemento_da_lista of minhaLista" no item
   //[(ngModel)]="texto" no input
+
 }
