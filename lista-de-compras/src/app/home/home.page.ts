@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
+
 
 @Component({
   selector: 'app-home',
@@ -7,31 +9,36 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private storage:Storage) {
+    this.storage.create();
+  }
 
-  variavel_lista = [];
-  variavel_lista_preco = [];
+  ngOnInit(){
+    this.atualizaLista();
+  }
+
+  variavel_lista = [[]];
   texto: string = "";
-  preco: number;
+  aux = 0;
 
-  adiciona() {
+  async adiciona() {
     if (!(this.texto == "")) {
-      this.variavel_lista.push(this.texto);
+      //this.variavel_lista.push("0", this.texto);
+
+      this.variavel_lista.forEach(item => {
+        if(parseInt(item[0]) > this.aux) {
+          this.aux = parseInt(item[0]);
+        }
+      })
+      this.aux = this.aux + 1;
+      await this.storage.set(this.aux.toString(), this.texto);
+      this.atualizaLista();
       this.texto = "";
     }
 
-
-      if (!(this.preco == 0)) {
-        this.variavel_lista_preco.push(this.preco);
-        this.preco = 0;
-      }
-      else{
-        this.variavel_lista_preco.push(0.00);
-        this.preco = 0;
-      }
-
       /*
     if (this.texto == "") {
+
     } else{
       this.variavel_lista.push(this.texto);
       this.texto = "";
@@ -39,9 +46,16 @@ export class HomePage {
 
   }
 
+  atualizaLista() {
+    this.variavel_lista = [];
+    this.storage.forEach((value, key, index) => {
+      this.variavel_lista.push([key, value]);
+    })
+  }
+
   remove(indice) {
     this.variavel_lista.splice(indice, 1)
-    this.variavel_lista_preco.splice(indice, 1)  }
+  }
 
   //*ngFor = "let elemento_da_lista of minhaLista" no item
   //[(ngModel)]="texto" no input
