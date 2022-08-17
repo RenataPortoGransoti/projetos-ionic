@@ -32,7 +32,6 @@ export class HomePage {
 
       /*
     if (this.texto == "") {
-
     } else{
       this.variavel_lista.push(this.texto);
       this.texto = "";
