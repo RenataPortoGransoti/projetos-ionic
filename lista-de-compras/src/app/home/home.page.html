@@ -4,7 +4,7 @@
       <ion-row>
         <ion-col size="9">
           <ion-item>
-            <ion-input placeholder="Nome de um produto" [(ngModel)]="texto"></ion-input>
+            <ion-input placeholder="Nome de um produto" [(ngModel)]="texto" (keyup.enter)="adiciona()"></ion-input>
 
           </ion-item>
         </ion-col>
@@ -23,7 +23,7 @@
                   {{elemento_da_lista[1]}}
                 </ion-col>
                 <ion-col size="3">
-                  <ion-button color="danger" size="small" (click)="remove(i)">
+                  <ion-button color="danger" size="small" (click)="remove(elemento_da_lista[0])">
                     <ion-icon name="trash-outline"></ion-icon>
                   </ion-button>
                 </ion-col>

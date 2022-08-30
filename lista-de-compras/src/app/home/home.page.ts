@@ -53,8 +53,10 @@ export class HomePage {
     })
   }
 
-  remove(indice) {
-    this.variavel_lista.splice(indice, 1)
+  async remove(indice) {
+    //this.variavel_lista.splice(indice, 1)
+    await this.storage.remove(indice);
+    this.atualizaLista();
   }
 
   //*ngFor = "let elemento_da_lista of minhaLista" no item
