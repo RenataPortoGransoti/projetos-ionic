@@ -20,6 +20,8 @@ export class HomePage {
   variavel_lista = [[]];
   texto: string = "";
   aux = 0;
+  variavel_lista_preco = [];
+  preco: number;
 
   async adiciona() {
     if (!(this.texto == "")) {
@@ -34,6 +36,14 @@ export class HomePage {
       await this.storage.set(this.aux.toString(), this.texto);
       this.atualizaLista();
       this.texto = "";
+    }
+    if (!(this.preco == 0)) {
+      this.variavel_lista_preco.push(this.preco);
+      this.preco = 0;
+    }
+    else{
+      this.variavel_lista_preco.push(0.00);
+      this.preco = 0;
     }
 
       /*
