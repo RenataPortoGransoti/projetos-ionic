@@ -17,14 +17,13 @@ export class HomePage {
     this.atualizaLista();
   }
 
-  variavel_lista = [[]];
+  variavel_lista = [];
   texto: string = "";
   aux = 0;
-  variavel_lista_preco = [];
-  preco: number;
+  preco: number = 0;
 
   async adiciona() {
-    if (!(this.texto == "")) {
+    if (!(this.texto == "" || this.preco == 0)) {
       //this.variavel_lista.push("0", this.texto);
 
       this.variavel_lista.forEach(item => {
@@ -33,35 +32,18 @@ export class HomePage {
         }
       })
       this.aux = this.aux + 1;
-      await this.storage.set(this.aux.toString(), this.texto);
+      await this.storage.set(this.aux.toString(), [this.texto, this.preco]);
       this.atualizaLista();
       this.texto = "";
-    }
-    if (!(this.preco == 0)) {
-      this.variavel_lista_preco.push(this.preco);
       this.preco = 0;
-    }
-    else{
-      this.variavel_lista_preco.push(0.00);
-      this.preco = 0;
-    }
+    }}
 
-      /*
-    if (this.texto == "") {
-
-    } else{
-      this.variavel_lista.push(this.texto);
-      this.texto = "";
-    }*/
-
-  }
 
   atualizaLista() {
     this.variavel_lista = [];
-    this.storage.forEach((value, key, index) => {
+    this.storage.forEach((value, key, index) =>{
       this.variavel_lista.push([key, value]);
-    })
-  }
+    }   )  }
 
   async remove(indice) {
     //this.variavel_lista.splice(indice, 1)
