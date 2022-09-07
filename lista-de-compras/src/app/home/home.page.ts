@@ -21,6 +21,7 @@ export class HomePage {
   texto: string = "";
   aux = 0;
   preco: number = 0;
+  total: number = 0;
 
   async adiciona() {
     if (!(this.texto == "" || this.preco == 0)) {
@@ -38,11 +39,16 @@ export class HomePage {
       this.preco = 0;
     }}
 
+    soma(preco){
+      this.total = (+this.total) + (+preco);
+    }
 
   atualizaLista() {
     this.variavel_lista = [];
+    this.total = 0;
     this.storage.forEach((value, key, index) =>{
       this.variavel_lista.push([key, value]);
+      this.soma(value[1]);
     }   )  }
 
   async remove(indice) {
