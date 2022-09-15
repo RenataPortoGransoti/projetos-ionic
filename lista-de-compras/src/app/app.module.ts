@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Drivers } from '@ionic/storage';
 
+
+import { HomePage } from './home/home.page';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [

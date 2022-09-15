@@ -16,7 +16,7 @@
           </ion-item>
         </ion-col>
         <ion-col size="3">
-          <ion-button size="small" (click)="adiciona()">
+          <ion-button  (click)="adiciona()">
             <ion-icon name="save-outline"></ion-icon>
           </ion-button>
         </ion-col>
@@ -43,24 +43,24 @@
         </ion-col>
       </ion-row>
       <ion-col>
-        <ion-item>
-          {{total}}
+        <ion-item class="total">
+          Total: R${{total}}
         </ion-item>
       </ion-col>
-    </ion-grid>
+    </ion-grid> 
+    <ion-img clas="imagem" src="https://cdn.pixabay.com/photo/2016/05/18/16/25/shopping-1400845_960_720.png"></ion-img>
   </div>
-
-
 </ion-content>
-<footer>
-<ion-toolbar>
-  <ion-segment value="all">
-    <ion-segment-button value="all">
-      All
-    </ion-segment-button>
-    <ion-segment-button value="favorites">
-      Favorites
-    </ion-segment-button>
-  </ion-segment>
-</ion-toolbar>
-</footer>
+
+  <footer>
+<ion-segment>
+  <ion-segment-button>
+    Tudo
+  </ion-segment-button>
+  <ion-segment-button value="favorites" (ionSelect)="favorites()">
+    Favoritos
+  </ion-segment-button>
+</ion-segment>
+  </footer>
+
+

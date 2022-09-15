@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { IonSegmentButton } from '@ionic/angular';
 import { Storage } from '@ionic/storage-angular';
+//import { ConsoleReporter } from 'jasmine';
+//import { FavoritesPage } from '../favorites/favorites.page';
 
 
 @Component({
@@ -7,6 +10,15 @@ import { Storage } from '@ionic/storage-angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+/*export class Favorites{
+  favorites = FavoritesPage;
+  constructor(){
+
+  }
+}*/
+
+
 export class HomePage {
 
   constructor(private storage:Storage) {
@@ -22,7 +34,6 @@ export class HomePage {
   aux = 0;
   preco: number = 0;
   total: number = 0;
-
   async adiciona() {
     if (!(this.texto == "" || this.preco == 0)) {
       //this.variavel_lista.push("0", this.texto);

@@ -9,8 +9,8 @@ ion-content{
   }
 
 ion-button{
-  --background: #d892b9;
-
+  --background: #dd4477;
+  --width:30px;
 }
 
 h1{
@@ -21,4 +21,19 @@ h1{
   font-family:'Combo', cursive;
 }
 
+ion-segment{
+  --background:#dd4477;
+}
 
+ion-segment-button{
+  --border-color: black;
+  --border-width: 1px;
+}
+
+.total{
+  --background: #dd4477;
+}
+
+.imagem{
+  width: 10%;
+}
